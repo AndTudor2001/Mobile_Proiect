@@ -32,6 +32,14 @@ public partial class TariPage : ContentPage
     {
         base.OnAppearing();
         var tr = (Tara)BindingContext;
-        listView.ItemsSource = await App.Database.GetListOraseAsync(tr.ID);
+        listView.ItemsSource = await App.Database.GetListOrasesAsync(tr.ID);
+    }
+    async void OnDeleteListOraseClicked(object sender, EventArgs e)
+    {
+        var tara = (Tara)BindingContext;
+        var p = listView.SelectedItem as Orase;
+        var lp = App.Database.GetListOraseAsync(tara.ID, p.ID);
+        await App.Database.DeleteListOraseAsync(await lp);
+        await Navigation.PopAsync();
     }
 }

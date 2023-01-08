@@ -10,11 +10,20 @@
         <Editor Placeholder="Introduceti numele continentului"
                 Text="{Binding Continent}"
                 HeightRequest="50" />
+        <ListView x:Name="listView" 
+                      Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Nume}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Text="Save" 
@@ -22,17 +31,12 @@
             <Button Grid.Column="1" 
                     Text="Delete" 
                     Clicked="OnDeleteButtonClicked"/>
-            <ListView x:Name="listView" 
-                      Margin="20">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Detail="{Binding Nume}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
             <Button Grid.Column="2"
                 Text="Add/Choose Oras" MaximumWidthRequest="300"
 Clicked="OnChooseButtonClicked"/>
+            <Button Grid.Column="3"
+                Text="Delete Item" MaximumWidthRequest="300" 
+                    Clicked="OnDeleteListOraseClicked" />
             
         </Grid>
     </StackLayout>
