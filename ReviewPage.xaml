@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_Proiect.ReviewPage"
              Title="ReviewPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <StackLayout Margin="20">
+        <Editor Placeholder="Introduceti-va numele" 
+                Text="{Binding NumePersoana}" 
+                HeightRequest="50" />
+        <Editor Placeholder="Introduceti numele hotelului caruia ii faceti recenzia"
+                Text="{Binding NumeHotel}"
+                HeightRequest="50" />
+        <Editor Placeholder="Introduceti textul"
+                Text="{Binding Text}"
+                HeightRequest="50" />
+        <ListView x:Name="listView" 
+                      Margin="20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Nume}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Text="Save" 
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1" 
+                    Text="Delete" 
+                    Clicked="OnDeleteButtonClicked"/>
+        </Grid>
+    </StackLayout>
 </ContentPage>

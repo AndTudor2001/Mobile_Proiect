@@ -21,6 +21,7 @@ namespace Mobile_Proiect.Data
             _database.CreateTableAsync<Hotel>().Wait();
             _database.CreateTableAsync<City>().Wait();
             _database.CreateTableAsync<ListCities>().Wait();
+            _database.CreateTableAsync<Review>().Wait();
             
         }
         public Task<List<Hotel>>GetHoteluriAsync()
@@ -170,6 +171,26 @@ namespace Mobile_Proiect.Data
             + " inner join ListCities LP"
             + " on P.ID = LP.CityID where LP.HotelID = ?",
             hotelid);
+        }
+        public Task<List<Review>> GetReviewsAsync() 
+        { 
+            return _database.Table<Review>().ToListAsync(); 
+        }
+        public Task<Review> GetReviewAsync(int id) 
+        { 
+            return _database.Table<Review>().Where(i => i.ID == id).FirstOrDefaultAsync(); 
+        }
+        public Task<int> SaveShopListAsync(Review review)
+        {
+            if (review.ID != 0)
+            {
+                return _database.UpdateAsync(review);
+            }
+            else { return _database.InsertAsync(review); }
+        }
+        public Task<int> DeleteShopListAsync(Review review) 
+        { 
+            return _database.DeleteAsync(review); 
         }
     }
 }

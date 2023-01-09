@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Mobile_Proiect.Models
 {
-    public class Hotel
+    public class Review
     {
         [PrimaryKey,AutoIncrement]
         public int ID { get; set; }
-        public string Nume { get; set; }
-        [ForeignKey(typeof(Orase))]
-        public int OrasID { get; set; }
-      
-
+        public string NumePersoana { get; set; }
+        public string NumeHotel { get; set; }
+        public string Text { get; set; }
+        public DateTime Date { get; set; }
     }
 }
