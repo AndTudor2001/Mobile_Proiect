@@ -11,7 +11,7 @@
 
             <Image
                 Source="poza.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                SemanticProperties.Description="Swiss Alps!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 

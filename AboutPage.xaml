@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_Proiect.AboutPage"
-             Title="AboutPage">
+             Title="AboutPage"
+            >
     <VerticalStackLayout>
+        <Image
+                Source="venice.png"
+                SemanticProperties.Description="Swiss Alps!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
         <Label 
-            Text="Aplicatie in care iti poti grupa destinatiile de vacanta in functie de tarile in care se afla, poti lasa review-uri despre hotelurile/locurile pe care le-ai vizitat
-            si sa-ti alegi viitoarele hoteluri din destinatiile de vacanta"
+            Text="Aplicatie care te ajuta cu organizarea viitoarelor vacante prin vizualizarea de review-uri, vizionarea de nume de hoteluri din diferite tari si posibile tari ca destinatii"
             VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            />
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
