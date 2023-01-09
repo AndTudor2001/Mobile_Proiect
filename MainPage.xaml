@@ -22,7 +22,7 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Bine ati venit in aplicatia noastra mobila de review-uri,hoteluri si destinatii de vacanta"
+                Text="Bine ati venit in aplicatia noastra mobila de review-uri, hoteluri si destinatii de vacanta"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
