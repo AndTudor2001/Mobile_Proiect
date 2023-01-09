@@ -7,12 +7,25 @@
     Shell.FlyoutBehavior="Disabled">
     <TabBar>
         <ShellContent
-        Title="Welcome"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    <ShellContent
-        Title="Tarile mele"
-        ContentTemplate="{DataTemplate local:TariEntryPage}" />
+                Title="Welcome"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        <ShellContent
+                Title="Tarile mele"
+                ContentTemplate="{DataTemplate local:TariEntryPage}" 
+            />
+        <ShellContent
+            Title="Hoteluri de urmarit"
+            ContentTemplate="{DataTemplate local:HotelEntryPage}"
+            />
+        <ShellContent
+            Title="Review-uri"
+            ContentTemplate="{DataTemplate local:ReviewEntryPage}"
+            />
+        <ShellContent
+            Title="About"
+            ContentTemplate="{DataTemplate local:AboutPage}"
+            />
     </TabBar>
 
 </Shell>

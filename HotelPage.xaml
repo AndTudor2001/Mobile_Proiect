@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_Proiect.HotelPage"
+             Title="HotelPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor Placeholder="Introduceti numele hotelului" 
+                Text="{Binding Nume}" 
+                HeightRequest="50" />
+            <ListView x:Name="listView" 
+                      Margin="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Nume}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                    Text="Save" 
+                    Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1" 
+                    Text="Delete" 
+                    Clicked="OnDeleteButtonClicked"/>
+                <Button Grid.Column="2"
+                Text="Add/Choose Oras" MaximumWidthRequest="300"
+Clicked="OnChooseButtonClicked"/>
+                <Button Grid.Column="3"
+                Text="Delete Oras" MaximumWidthRequest="300" 
+                    Clicked="OnDeleteListCitiesClicked" />
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -15,5 +15,6 @@ namespace Mobile_Proiect.Models
         public string Nume { get; set; }
         [OneToMany]
         public List<ListOrase> Orases { get; set; }
+       
     }
 }

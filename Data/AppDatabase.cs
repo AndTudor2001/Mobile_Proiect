@@ -18,7 +18,30 @@ namespace Mobile_Proiect.Data
             _database.CreateTableAsync<Tara>().Wait();
             _database.CreateTableAsync<Orase>().Wait();
             _database.CreateTableAsync<ListOrase>().Wait();
+            _database.CreateTableAsync<Hotel>().Wait();
+            _database.CreateTableAsync<City>().Wait();
+            _database.CreateTableAsync<ListCities>().Wait();
             
+        }
+        public Task<List<Hotel>>GetHoteluriAsync()
+        {
+            return _database.Table<Hotel>().ToListAsync();
+        }
+
+        public Task<int>SaveHotelAsync(Hotel hotel)
+        {
+            if(hotel.ID!=0)
+            {
+                return _database.UpdateAsync(hotel);
+            }
+            else
+            {
+                return _database.InsertAsync(hotel);
+            }
+        }
+        public Task<int>DeleteHotelAsync(Hotel hotel)
+        {
+            return _database.DeleteAsync(hotel);
         }
       
         public Task<int> SaveOrasAsync(Orase oras)
@@ -89,6 +112,7 @@ namespace Mobile_Proiect.Data
                 Where(i => (i.TaraID == taraid && i.OrasID == orasid))
                 .FirstOrDefaultAsync();
         }
+       
         public Task<List<Orase>> GetListOrasesAsync(int taraid)
         {
             return _database.QueryAsync<Orase>(
@@ -96,6 +120,56 @@ namespace Mobile_Proiect.Data
             + " inner join ListOrase LP"
             + " on P.ID = LP.OrasID where LP.TaraID = ?",
             taraid);
+        }
+        public Task<int> SaveCityAsync(City city)
+        {
+            if (city.ID != 0)
+            {
+                return _database.UpdateAsync(city);
+            }
+            else
+            {
+                return _database.InsertAsync(city);
+            }
+        }
+        public Task<int> DeleteCityAsync(City city)
+        {
+            return _database.DeleteAsync(city);
+        }
+        public Task<List<City>> GetCityAsync()
+        {
+            return _database.Table<City>().ToListAsync();
+        }
+        public Task<int> SaveListCitiesAsync(ListCities listc)
+        {
+            if (listc.ID != 0)
+            {
+                return _database.UpdateAsync(listc);
+            }
+            else
+            {
+                return _database.InsertAsync(listc);
+            }
+        }
+        public Task<int> DeleteListCitiesAsync(ListCities listc)
+        {
+
+            return _database.DeleteAsync(listc);
+        }
+        public Task<ListCities> GetListCitiesAsync(int hotelid, int cityid)
+        {
+            return _database.Table<ListCities>().
+                Where(i => (i.HotelID == hotelid && i.CityID == cityid))
+                .FirstOrDefaultAsync();
+        }
+
+        public Task<List<City>> GetListCitiessAsync(int hotelid)
+        {
+            return _database.QueryAsync<City>(
+            "select P.ID, P.Nume from City P"
+            + " inner join ListCities LP"
+            + " on P.ID = LP.CityID where LP.HotelID = ?",
+            hotelid);
         }
     }
 }

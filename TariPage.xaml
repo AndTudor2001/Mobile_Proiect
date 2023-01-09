@@ -35,7 +35,7 @@
                 Text="Add/Choose Oras" MaximumWidthRequest="300"
 Clicked="OnChooseButtonClicked"/>
             <Button Grid.Column="3"
-                Text="Delete Item" MaximumWidthRequest="300" 
+                Text="Delete Oras" MaximumWidthRequest="300" 
                     Clicked="OnDeleteListOraseClicked" />
             
         </Grid>

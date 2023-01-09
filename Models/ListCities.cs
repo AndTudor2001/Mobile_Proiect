@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Mobile_Proiect.Models
 {
-    public class ListOrase
+    public class ListCities
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        [ForeignKey(typeof(Tara))]
-        public int TaraID { get; set; }
-        public int OrasID { get; set; }
-    }
+        [ForeignKey(typeof(Hotel))]
+        public int HotelID { get; set; }
+        public int CityID { get; set; }
         
+    }
 }
